@@ -10,11 +10,8 @@
 
 @interface InputCollector : NSObject
 
-@property (nonatomic) NSMutableArray *command_list;
 
 - (NSString *)inputForPrompt:(NSString *)promptString;
-- (NSMutableArray *)saveHistory:(NSString *)input;
-- (void)showHistory;
 
 
 @end

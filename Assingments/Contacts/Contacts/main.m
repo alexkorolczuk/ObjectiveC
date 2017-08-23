@@ -21,6 +21,9 @@ int main(int argc, const char * argv[]) {
         
         
         ContactList *contactlist = [[ContactList alloc]init];
+        NSMutableArray *history = [[NSMutableArray alloc]init];
+
+
     
         while(YES){
 
@@ -29,7 +32,7 @@ int main(int argc, const char * argv[]) {
         
         InputCollector *ic1 = [[InputCollector alloc]init];
         NSString *userInput = [ic1 inputForPrompt:@"Please choose one of the options"];
-        NSMutableArray *history = [ic1 saveHistory:userInput];
+        [history addObject:userInput];
 
 
         
@@ -106,21 +109,21 @@ int main(int argc, const char * argv[]) {
                 
                 NSUInteger array_lenght = [history count];
                 if (array_lenght >= 3) {
-                    NSString *last_commands = [NSString stringWithFormat:@"%@, %@, %@", ic1.command_list[array_lenght-1], ic1.command_list[array_lenght-2], ic1.command_list[array_lenght-3]];
+                    NSString *last_commands = [NSString stringWithFormat:@"%@, %@, %@", history[array_lenght-1], history[array_lenght-2], history[array_lenght-3]];
                     NSLog(@"%@", last_commands);
                 }
-                else
-                NSLog(@"Not enough commands");
+                else {
+                    for (NSString* command in history)
+                          NSLog(@"Your last command is: %@", command);
                 }
+            
+            }
+            
             
         }
         
     }
     return 0;
 }
-
-
-
-
 
 

@@ -11,15 +11,6 @@
 @implementation InputCollector
 
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _command_list = [[NSMutableArray alloc]init];
-    }
-    return self;
-}
-
 
  - (NSString *)inputForPrompt:(NSString *)promptString
 {
@@ -34,31 +25,6 @@
     
     return input;
 }
-
-
-- (NSMutableArray *)saveHistory:(NSString *)input
-{
-    
-    [self.command_list addObject:input];
-    
-    return _command_list;
-}
-
-//
-//-(void)showHistory
-//{
-//    NSMutableArray *array = [array ]
-//    
-//
-//    NSUInteger array_lenght = [array count];
-//    NSLog(@"%lu", (unsigned long)array_lenght);
-//    if (array_lenght >= 3) {
-//    NSString *last_commands = [NSString stringWithFormat:@"%@, %@, %@", self.command_list[array_lenght-1], self.command_list[array_lenght-2], self.command_list[array_lenght-3]];
-//        NSLog(@"%@", last_commands);
-//    }
-//    else
-//        NSLog(@"Not enough commands");
-//}
 
 
 
