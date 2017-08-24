@@ -11,14 +11,22 @@
 #import "InputHandler.h"
 #import "AdditionQuestion.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         NSLog(@"MATHS!");
         ScoreKeeper *score = [[ScoreKeeper alloc] init];
+        QuestionManager *questionmanager = [[QuestionManager alloc] init];
+        
+        
+        
         while(1) {
             
             AdditionQuestion *q1 = [[AdditionQuestion alloc] init];
+            [questionmanager.questions addObject:q1];
+            
             NSLog(@"%@", [q1 question]);
             
             NSString *input = [InputHandler getUserInput];
@@ -31,21 +39,19 @@ int main(int argc, const char * argv[]) {
             }
             
             [score printCurrentState];
-            NSTimeInterval difference = [q1 answerTime];
+            int difference = [q1 answerTime];
             if ( difference >60){
                 long seconds = lroundf([q1 answerTime]);
                 int mins = (seconds % 3600) / 60;
                 int secs = seconds % 60;
                 NSLog(@"Your answer time is %d minutes and %d seconds", mins, secs);
             } else
-                NSLog(@"Fast! Your answer time is just %@", )
+                NSLog(@"Fast! Your answer time is just: %d seconds",difference);
             
-                // NSTimeInterval  today = [[NSDate date] timeIntervalSince1970];
-                // NSString *intervalString = [NSString stringWithFormat:@"%f", today];
-                
+            NSLog(@"%@", [questionmanager timeOutput]);
             
             
-            
+        
             NSLog(@"Do you want to quit? press 'q'.");
             NSString *quit = [InputHandler getUserInput];
             if ([quit isEqualToString:@"q"]) {
