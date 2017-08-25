@@ -9,9 +9,16 @@
 
 #import <Foundation/Foundation.h>
 #import "InputHandler.h"
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
+#import "QuestionFactory.h"
+#import "AdditionQuestion.h"
+#import "DivisionQuestion.h"
+#import "MultiplicationQuestion.h"
+#import "SubtractionQuestion.h"
+
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -19,12 +26,15 @@ int main(int argc, const char * argv[]) {
         NSLog(@"MATHS!");
         ScoreKeeper *score = [[ScoreKeeper alloc] init];
         QuestionManager *questionmanager = [[QuestionManager alloc] init];
+        QuestionFactory *questionfactory = [[QuestionFactory alloc] init];
+
         
         
         
         while(1) {
             
-            AdditionQuestion *q1 = [[AdditionQuestion alloc] init];
+            //Question *q1 = [[Question alloc] init];
+            Question *q1 = [questionfactory generateRandomQuestion];
             [questionmanager.questions addObject:q1];
             
             NSLog(@"%@", [q1 question]);
