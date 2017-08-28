@@ -11,6 +11,8 @@
 @implementation Dice
 
 
+
+
 - (int)rollTheDice
 {
     _value = arc4random_uniform(6) +1;

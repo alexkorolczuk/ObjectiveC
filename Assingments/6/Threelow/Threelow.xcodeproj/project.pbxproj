@@ -10,6 +10,7 @@
 		D1EDD88F1F5225510096766B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EDD88E1F5225510096766B /* main.m */; };
 		D1EDD89A1F522CB00096766B /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EDD8991F522CB00096766B /* Dice.m */; };
 		D1EDD89D1F522EA10096766B /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EDD89C1F522EA10096766B /* InputHandler.m */; };
+		D1EDD8A01F52365F0096766B /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EDD89F1F52365F0096766B /* GameController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		D1EDD8991F522CB00096766B /* Dice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dice.m; sourceTree = "<group>"; };
 		D1EDD89B1F522EA10096766B /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
 		D1EDD89C1F522EA10096766B /* InputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		D1EDD89E1F52365F0096766B /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		D1EDD89F1F52365F0096766B /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				D1EDD8991F522CB00096766B /* Dice.m */,
 				D1EDD89B1F522EA10096766B /* InputHandler.h */,
 				D1EDD89C1F522EA10096766B /* InputHandler.m */,
+				D1EDD89E1F52365F0096766B /* GameController.h */,
+				D1EDD89F1F52365F0096766B /* GameController.m */,
 			);
 			path = Threelow;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1EDD89A1F522CB00096766B /* Dice.m in Sources */,
+				D1EDD8A01F52365F0096766B /* GameController.m in Sources */,
 				D1EDD89D1F522EA10096766B /* InputHandler.m in Sources */,
 				D1EDD88F1F5225510096766B /* main.m in Sources */,
 			);
@@ -260,6 +266,7 @@
 				D1EDD8941F5225510096766B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
