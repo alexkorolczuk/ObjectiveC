@@ -1,5 +1,5 @@
 //
-//  InputHandler.h
+//  PaypalPaymentService.h
 //  Payments
 //
 //  Created by Aleksandra Korolczuk on 2017-08-29.
@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaymentGateway.h"
 
-@interface InputHandler : NSObject
 
-+ (NSString *) getUserInput;
+@interface PaypalPaymentService : NSObject <PaymentDelegate> 
 
 @end

@@ -1,5 +1,5 @@
 //
-//  InputHandler.h
+//  ApplePaymentService.h
 //  Payments
 //
 //  Created by Aleksandra Korolczuk on 2017-08-29.
@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaymentGateway.h"
 
-@interface InputHandler : NSObject
+@interface ApplePaymentService : NSObject <PaymentDelegate>
 
-+ (NSString *) getUserInput;
+
 
 @end
