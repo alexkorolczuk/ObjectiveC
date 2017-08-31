@@ -11,9 +11,6 @@
 @implementation Pizza
 
 
-
-
-
 - (instancetype)initWithSize:(PizzaSize)size andTop:(NSArray *) toppings
 {
     self = [super init];
@@ -35,18 +32,13 @@
 
 }
 
+NSString * const PizzaType_toString[] = {
+    [small] = @"small",
+    [medium] = @"medium",
+    [large] = @"large"
+};
 
--(PizzaSize)pizzaSize:(NSString *)s
-{
 
-    int size =  [s intValue];
-    if (size == large)
-        return large;
-    else if (size == medium)
-        return medium;
-    else
-        return small;
-}
 
 - (NSArray *)pizzaToppings
 {

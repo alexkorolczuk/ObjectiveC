@@ -14,23 +14,22 @@
 
 typedef enum{
     
-    small = 1,
-    medium = 2,
-    large = 3,
+    small,
+    medium,
+    large
     
-}PizzaSize;
+} PizzaSize;
+
 
 
 @property (nonatomic, assign) PizzaSize size;
 @property (nonatomic) NSArray *toppings;
 
 
-
-
 - (instancetype)initWithSize:(PizzaSize) size andTop:(NSArray *) toppings;
--(PizzaSize)pizzaSize:(NSString *)s;
 - (NSArray *)pizzaToppings;
 - (instancetype)initLargePepperoni;
+extern NSString * const PizzaType_toString[];
 
 
 @end
