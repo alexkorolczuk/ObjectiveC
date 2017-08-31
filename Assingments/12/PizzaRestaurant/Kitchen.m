@@ -19,34 +19,27 @@
 
     Pizza *pizza;
     if (self.delegate)
-        
     {
-        
         if ([self.delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings] == NO){
-                return NULL;
+            return NULL;
         }
         
         if ([self.delegate kitchenShouldUpgradeOrder:self] == YES){
-                pizza = [[Pizza alloc]initWithSize:large andTop:toppings];
+            pizza = [[Pizza alloc]initWithSize:large andTop:toppings];
+        } else {
+            
+            pizza = [[Pizza alloc]initWithSize:size andTop:toppings];
         }
         
-        pizza = [[Pizza alloc]initWithSize:size andTop:toppings];
         
         if ([self.delegate respondsToSelector:@selector(kitchenDidMakePizza:)]) {
             [self.delegate kitchenDidMakePizza:pizza];
         }
         
-        return pizza;
-        
-        
-        
     } else {
         pizza = [[Pizza alloc]initWithSize:size andTop:toppings];
-        return pizza;
     }
-    
     return pizza;
-    
 }
 
 -(Pizza *)makePepperoni

@@ -40,9 +40,10 @@ NSString * const PizzaType_toString[] = {
 
 
 
-- (NSArray *)pizzaToppings
+- (NSString *)pizzaToppings
 {
-    return self.toppings;
+    NSString *string_toppings = [self.toppings componentsJoinedByString:@" "];
+    return string_toppings;
 }
 
 

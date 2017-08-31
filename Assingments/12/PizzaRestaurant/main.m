@@ -14,6 +14,8 @@
 #import "JuniorManager.h"
 #import "InputHandler.h"
 #import "DeliveryService.h"
+#import "DeliveryCar.h"
+
 
 
 int main(int argc, const char * argv[])
@@ -21,17 +23,18 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
         
-        NSLog(@"Please pick your pizza size and toppings:");
         
         Kitchen *restaurantKitchen = [Kitchen new];
         KitchenManager *kitchen_manager = [[KitchenManager alloc]init];
         JuniorManager *junior = [[JuniorManager alloc]init];
         DeliveryService *delivery = [[DeliveryService alloc]init];
-
+        DeliveryCar *car = [[DeliveryCar alloc]init];
+        
         
         
         while (TRUE) {
-            
+            NSLog(@"Please pick your pizza size and toppings:");
+
             NSLog(@"> ");
     
 //-----------------------managing input------------------------------
@@ -42,7 +45,7 @@ int main(int argc, const char * argv[])
             
             NSArray *toppings_array = [commandWords subarrayWithRange:NSMakeRange(1, [commandWords count] -1)];
             
-            
+        
             PizzaSize size;
             if ([first_word isEqualToString:@"small"])
                 size = (PizzaSize) small;
@@ -83,10 +86,11 @@ int main(int argc, const char * argv[])
 
             } else if ([manager_switch isEqualToString:@"2"]) {
                 restaurantKitchen.delegate = junior;
+                [junior setService:(DeliveryService *) delivery];
                 
                 Pizza *junior_pizza = [restaurantKitchen makePizzaWithSize:size toppings:toppings_array];
                 NSLog(@"Here is your pizza my lord: %@, %@", PizzaType_toString[junior_pizza.size], [junior_pizza pizzaToppings]);
-                NSLog(@"Delivered pizzas:%@", [delivery pizzasDelivered:junior_pizza]);
+                NSLog(@"Delivery service report: %@",[[delivery pizzasDelivered:junior_pizza] componentsJoinedByString:@" "]);
                 
                 
 //--------------------------- KITCHEN MAMANGER: ------------------------------------------------

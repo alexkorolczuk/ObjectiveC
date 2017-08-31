@@ -33,10 +33,12 @@
 
 -(NSArray *)pizzasDelivered:(Pizza *)pizza
 {
-    NSString *description = [NSString stringWithFormat: @"Delivered: %@, %@",PizzaType_toString[pizza.size], pizza.toppings];
-    NSLog(@"%@",description);
+    NSString *toppings = [pizza.toppings componentsJoinedByString:@" "];
+    NSString *description = [NSString stringWithFormat: @"Delivered: %@, %@",PizzaType_toString[pizza.size], toppings];
     [self.pizza_deliveries addObject:description];
     
+   [self.pizza_deliveries componentsJoinedByString:@" "];
+
     return _pizza_deliveries;
 }
 

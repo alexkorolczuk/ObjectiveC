@@ -11,7 +11,7 @@
 
 @interface JuniorManager : NSObject <KitchenDelegate>
 
-
+@property (nonatomic) DeliveryService *service;
 
 
 @end

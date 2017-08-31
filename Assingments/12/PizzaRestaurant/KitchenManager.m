@@ -35,7 +35,6 @@
 
 - (void)kitchenDidMakePizza:(Pizza *)pizza
 {
-    NSLog(@"DID MAKE IT");
 
 }
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Pizza.h"
+#import "DeliveryService.h"
 
 @class Kitchen;
 
@@ -19,6 +20,7 @@
 
 @optional
 - (void)kitchenDidMakePizza:(Pizza *)pizza;
+- (void)kitchenDidMakePizza:(Pizza *)pizza andDelivered:(DeliveryService *)service;
 
 
 @end

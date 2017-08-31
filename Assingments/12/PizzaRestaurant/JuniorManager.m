@@ -14,9 +14,6 @@
 
 
 
-
-
-
 - (BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings
 {
     return YES;
@@ -27,11 +24,10 @@
     return YES;
 }
 
-
-- (void)kitchenDidMakePizza:(Pizza *)pizza andDelivered:(DeliveryService *)service
+- (void)kitchenDidMakePizza:(Pizza *)pizza
 {
-    NSLog(@"Thank you !!!");
-    [service deliverPizza:pizza];
+    NSLog(@"Thank you for ordering with us!!!");
+    [self.service deliverPizza:pizza];
     
 }
 
