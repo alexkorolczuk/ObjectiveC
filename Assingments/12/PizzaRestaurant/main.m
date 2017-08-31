@@ -25,13 +25,12 @@ int main(int argc, const char * argv[])
         
         
         Kitchen *restaurantKitchen = [Kitchen new];
-        KitchenManager *kitchen_manager = [[KitchenManager alloc]init];
-        JuniorManager *junior = [[JuniorManager alloc]init];
         DeliveryService *delivery = [[DeliveryService alloc]init];
-        DeliveryCar *car = [[DeliveryCar alloc]init];
         
         
-        
+        KitchenManager *kitchen_manager;
+        JuniorManager *junior;
+
         while (TRUE) {
             NSLog(@"Please pick your pizza size and toppings:");
 
@@ -85,6 +84,9 @@ int main(int argc, const char * argv[])
 //--------------------------- JUNIOR MAMANGER: ------------------------------------------------
 
             } else if ([manager_switch isEqualToString:@"2"]) {
+                if (junior == NULL)
+                    junior = [[JuniorManager alloc]init];
+
                 restaurantKitchen.delegate = junior;
                 [junior setService:(DeliveryService *) delivery];
                 
@@ -96,14 +98,18 @@ int main(int argc, const char * argv[])
 //--------------------------- KITCHEN MAMANGER: ------------------------------------------------
 
             } else {
+                if (kitchen_manager == NULL)
+                    kitchen_manager = [[KitchenManager alloc]init];
+                
                 restaurantKitchen.delegate = kitchen_manager;
                 Pizza *manager_pizza = [restaurantKitchen makePizzaWithSize:size toppings:toppings_array];
                 
                 if (manager_pizza != NULL)
-                    NSLog(@"Here is your pizza: %@, %@", PizzaType_toString[manager_pizza.size], [manager_pizza pizzaToppings]);
+                    NSLog(@"Here is your pizza from kitchen manager: %@, %@", PizzaType_toString[manager_pizza.size], [manager_pizza pizzaToppings]);
                 else
                     NSLog(@"No pizza! We hate anchovies!!!! ");
-            }
+                }
+            
         }
 
 
