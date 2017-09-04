@@ -20,5 +20,6 @@
 -(void)createPlayers:(int)numberOfPlayers;
 -(void) roll;
 - (Player *)currentPlayer;
+- (NSString *) score;
 
 @end

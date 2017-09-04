@@ -35,13 +35,12 @@
     return self;
 }
 
--(void) rollTheDice
+-(void) roll
 {
-    NSLog(@"rollllllllling");
     int dice = arc4random_uniform(6) +1;
     
     _currentSquare  = _currentSquare + dice;
-    _output = [NSString stringWithFormat:@"%@ rolled %d, you landed on %ld",self.name, dice, _currentSquare];
+    _output = [NSString stringWithFormat:@"%@ rolled %d, landed on %ld",self.name, dice, _currentSquare];
     
     int current = (int) _currentSquare;
 
@@ -49,19 +48,23 @@
         int key = [number intValue];
         if (key == current) {
             _currentSquare = [[_gameLogic objectForKey:number]integerValue];
-            _output = [NSString stringWithFormat:@"Magic! %@ rolled %d, but he's moving from %d to %ld", self.name, dice, key, _currentSquare];   }
+            _output = [NSString stringWithFormat:@"Magic! %@ rolled %d, but he's moving from %d to %ld", self.name, dice, key, _currentSquare];
+        }
     }
     
     if (_currentSquare >= 100) {
-        _output = [NSString stringWithFormat:@"You rolled %d, GAME OVER!!!", dice];
         _gameOver = YES;
+        _output = [NSString stringWithFormat:@"Player rolled %d, GAME OVER!!!", dice];
     }
     
     NSLog(@"%@", _output);
 
-    
 }
 
+- (NSString *) score
+{
+    return [NSString stringWithFormat:@"score: %@: %ld ", self.name, (long)self.currentSquare];
+}
 
 
 @end

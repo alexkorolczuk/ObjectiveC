@@ -19,7 +19,8 @@
 @property (nonatomic) NSString *name;
 
 
-- (void) rollTheDice;
+- (void) roll;
+- (NSString *) score;
 
 @end
 
